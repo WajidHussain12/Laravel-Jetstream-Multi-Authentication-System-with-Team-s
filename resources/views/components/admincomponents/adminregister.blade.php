@@ -1,6 +1,6 @@
-<div id="registerform" class="mt-10">
+<div  class="section  bg-white rounded-lg shadow-white shadow-md  m-auto " style="padding:50px">
 
-    <h1 class="bg-black text-white mb-10 p-5 text-center">Admin Registration</h1>
+    <h1 class="rounded-md  text-blue-600 font-bold text-lg text-center">Admin Registration</h1>
 
 
     <form autocomplete="off">

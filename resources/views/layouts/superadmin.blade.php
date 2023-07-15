@@ -19,69 +19,94 @@
     @livewireStyles
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased" style="background-color:#F1F5F9">
 
-
-
+    {{-- Super Admin Components --}}
 
 
     <div class="p-4 sm:ml-64">
 
         <x-admincomponents.adminnavigationmenu />
         <x-admincomponents.adminheader />
-        <x-admincomponents.adminregister />
 
     </div>
 
     <x-admincomponents.adminsidebar />
+    <x-admincomponents.admindashboardmain />
+
+
+    <div class="p-4 sm:ml-64">
+
+        <x-admincomponents.adminregister />
+        <x-admincomponents.admincategories />
+
+    </div>
 
 
 
 
 
+    {{-- jQuery CDN --}}
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    {{-- jQuery Code --}}
+
+    <script>
+        $(document).ready(function() {
+            // // Hide the register form by default
+            // $("#registerform").hide();
+
+            // // Handle click event for "adminregister" button
+            // $("#adminregister").click(function() {
+            //     // Hide the "main" element
+            //     $("#main").hide();
+            //     // Show the register form
+            //     $("#registerform").show();
+            // });
+
+            // // Handle click event for "superadmin_dash" button
+            // $("#superadmin_dash").click(function() {
+            //     // Show the "main" element
+            //     $("#main").show();
+            //     // Hide the register form
+            //     $("#registerform").hide();
+            // });
+
+            $('.section').hide(); // Hide all sections initially
+
+            // Show the default section on page load
+            const defaultSection = $('.section.default');
+            defaultSection.show();
+
+            $('.anchor').click(function(event) {
+                event.preventDefault();
+
+                const clickedAnchor = $(this);
+                const index = $('.anchor').index(clickedAnchor);
+                const targetSection = $('.section').eq(index);
+
+                $('.section').hide(); // Hide all sections
+                targetSection.show(); // Show the target section
+            });
 
 
+            // Handle click event for anchor links
+            $("a").click(function() {
+                // Check if the sidebar is visible and the screen is small
+                if ($("#default-sidebar").is(":visible") && $(window).width() < 640) {
+                    // Hide the sidebar
+                    $("#default-sidebar").addClass("-translate-x-full");
+                }
+            });
+
+
+
+        });
+    </script>
 
 
 </body>
-<script src="https://code.jquery.com/jquery-3.7.0.min.js"
-    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-
-<script>
-    $(document).ready(function() {
-        // Hide the register form by default
-        $("#registerform").hide();
-
-        // Handle click event for "adminregister" button
-        $("#adminregister").click(function() {
-            // Hide the "main" element
-            $("#main").hide();
-            // Show the register form
-            $("#registerform").show();
-        });
-
-        // Handle click event for "superadmin_dash" button
-        $("#superadmin_dash").click(function() {
-            // Show the "main" element
-            $("#main").show();
-            // Hide the register form
-            $("#registerform").hide();
-        });
-
-
-
-        // Handle click event for anchor links
-        $("a").click(function() {
-            // Check if the sidebar is visible and the screen is small
-            if ($("#default-sidebar").is(":visible") && $(window).width() < 640) {
-                // Hide the sidebar
-                $("#default-sidebar").addClass("-translate-x-full");
-            }
-        });
-
-
-
-    });
-</script>
 
 </html>
