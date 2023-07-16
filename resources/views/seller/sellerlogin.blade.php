@@ -1,9 +1,9 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            {{-- <x-superadminauthentication-card-logo /> --}}
+            {{-- <x-sellerauthentication-card-logo /> --}}
         </x-slot>
-        <h1 class="text-2xl mb-5">Super Admin Login</h1>
+        <h1 class="text-2xl mb-5">Seller Login</h1>
         <x-validation-errors class="mb-4" />
 
         @if (session('status'))
@@ -13,7 +13,7 @@
         @endif
 
 
-        <form method="POST" action="{{ route('superadmin-formlogin') }}">
+        <form method="POST" action="{{ route('seller-formlogin') }}">
 
             @csrf
 

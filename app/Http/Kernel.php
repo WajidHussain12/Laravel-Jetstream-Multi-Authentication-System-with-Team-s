@@ -54,6 +54,7 @@ class Kernel extends HttpKernel
      */
     protected $middlewareAliases = [
         'superadminauth' => \App\Http\Middleware\superadminAuthenticate::class,
+        'sellerauth' => \App\Http\Middleware\sellerAuthenticate::class,
         'adminauth' => \App\Http\Middleware\adminAuthenticate::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

@@ -50,6 +50,17 @@ class DatabaseSeeder extends Seeder
         $superadmin->assignRole($superadmin_Role);
 
 
+        $seller_role=Role::create(['name'=> 'seller']);
+
+        $newseller=User::create([
+            'name' => "newseller",
+            'email' => "newseller@seller.com",
+            'password'=>bcrypt('password')
+        ]);
+
+        $newseller->assignRole($seller_role);
+
+
         // $permission = Permission::create(['name' => 'edit articles']);
 
         // \App\Models\User::factory()->create([

@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 include_once 'userroutes.php';
 include_once 'adminroutes.php';
 include_once 'superadminroutes.php';
+include_once 'sellerroutes.php';
 
 
 /*
@@ -79,7 +80,7 @@ Route::get('admin/login', function () {
 
 
 
-
+// Superadmin Routes
 
 Route::middleware(['superadminauth:sanctum', config('jetstream.auth_session'), 'verified', 'role:superadmin'])->group(function () {
     Route::get('/superadmin/dashboard', function () {
@@ -117,3 +118,20 @@ Route::middleware('auth')->group(function () {
 });
 
 
+
+
+
+// seller Center Account
+
+
+Route::middleware(['sellerauth:sanctum', config('jetstream.auth_session'), 'verified', 'role:seller'])->group(function () {
+    Route::get('/seller/dashboard', function () {
+        return view('seller.sellerdashboard');
+    })->name('seller.dashboard');
+});
+
+
+
+Route::get('seller/login', function () {
+    return view('seller.sellerlogin');
+})->name('seller.login');
