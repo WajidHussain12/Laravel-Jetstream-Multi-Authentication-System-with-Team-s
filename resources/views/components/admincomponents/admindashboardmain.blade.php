@@ -1,5 +1,10 @@
-<div class="section default p-4 sm:ml-64" >
-    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg">
+@extends('layouts.superadmin')
+
+
+@section('superadmincontent')
+
+<div class="section default" >
+    <div class="border-2 border-gray-200 border-dashed rounded-lg">
         <div class="grid grid-cols-3 gap-4 mb-4">
             <div class="flex items-center justify-center h-24 rounded bg-gray-50">
                 <p class="text-2xl text-gray-400">
@@ -125,3 +130,7 @@
         </div>
     </div>
 </div>
+@endsection
+
+
+

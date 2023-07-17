@@ -32,13 +32,15 @@
     </div>
 
     <x-admincomponents.adminsidebar />
-    <x-admincomponents.admindashboardmain />
+    {{-- <x-admincomponents.admindashboardmain /> --}}
 
 
     <div class="p-4 sm:ml-64">
 
-        <x-admincomponents.adminregister />
-        <x-admincomponents.admincategories />
+        {{-- <x-admincomponents.adminregister />
+        <x-admincomponents.admincategories /> --}}
+
+        @yield('superadmincontent')
 
     </div>
 
@@ -74,22 +76,22 @@
             //     $("#registerform").hide();
             // });
 
-            $('.section').hide(); // Hide all sections initially
+            // $('.section').hide(); // Hide all sections initially
 
-            // Show the default section on page load
-            const defaultSection = $('.section.default');
-            defaultSection.show();
+            // // Show the default section on page load
+            // const defaultSection = $('.section.default');
+            // defaultSection.show();
 
-            $('.anchor').click(function(event) {
-                event.preventDefault();
+            // $('.anchor').click(function(event) {
+            //     event.preventDefault();
 
-                const clickedAnchor = $(this);
-                const index = $('.anchor').index(clickedAnchor);
-                const targetSection = $('.section').eq(index);
+            //     const clickedAnchor = $(this);
+            //     const index = $('.anchor').index(clickedAnchor);
+            //     const targetSection = $('.section').eq(index);
 
-                $('.section').hide(); // Hide all sections
-                targetSection.show(); // Show the target section
-            });
+            //     $('.section').hide(); // Hide all sections
+            //     targetSection.show(); // Show the target section
+            // });
 
 
             // Handle click event for anchor links

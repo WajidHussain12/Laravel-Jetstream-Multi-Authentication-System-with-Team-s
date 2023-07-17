@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SuperAdminController;
 
 include_once 'userroutes.php';
 include_once 'adminroutes.php';
@@ -83,9 +84,19 @@ Route::get('admin/login', function () {
 // Superadmin Routes
 
 Route::middleware(['superadminauth:sanctum', config('jetstream.auth_session'), 'verified', 'role:superadmin'])->group(function () {
-    Route::get('/superadmin/dashboard', function () {
-        return view('superadmin.superadmindashboard');
-    })->name('superadmin.dashboard');
+
+
+    Route::get('/superadmin/dashboard', [SuperAdminController::class, 'adminmaindashboard'])->name('superadmin.dashboard');
+
+    Route::get('/admin/register', [SuperAdminController::class, 'adminregister'])->name('adminregister');
+    Route::get('/registerd/admins/list', [SuperAdminController::class, 'registeradminslist'])->name('regadminlist');
+    Route::get('/super/admin/inbox', [SuperAdminController::class, 'admininbox'])->name('admininbox');
+    Route::get('/super/admin/addcategory', [SuperAdminController::class, 'adminaddcategory'])->name('adminaddcategory');
+    Route::get('/super/admin/showcategory', [SuperAdminController::class, 'adminshowcategory'])->name('adminshowcategory');
+    // this url for fetch data
+    Route::get('/super/admin/showcategory', [SuperAdminController::class, 'categorylistshow'])->name('adminshowcategory');
+    Route::post('/super/admin/regcategory', [SuperAdminController::class, 'regcategory'])->name('regcategory');
+    // Route::get('/admin/maindashboard', [SuperAdminController::class, 'adminmaindashboard']);
 });
 
 
@@ -113,6 +124,8 @@ Route::middleware('auth')->group(function () {
             return redirect()->route('admin.dashboard');
         } elseif (auth()->user()->hasRole('superadmin')) {
             return redirect()->route('superadmin.dashboard');
+        } elseif (auth()->user()->hasRole('seller')) {
+            return redirect()->route('seller.dashboard');
         }
     })->name('dashboard');
 });
@@ -125,6 +138,7 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware(['sellerauth:sanctum', config('jetstream.auth_session'), 'verified', 'role:seller'])->group(function () {
+
     Route::get('/seller/dashboard', function () {
         return view('seller.sellerdashboard');
     })->name('seller.dashboard');
