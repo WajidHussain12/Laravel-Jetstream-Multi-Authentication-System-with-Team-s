@@ -81,55 +81,61 @@
                     <th scope="col" class="px-6 py-3">
                         Status
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 text-center">
                         Actions
                     </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($category as $item )
-                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                            {{$item->id}}
-                        </p>
-                    </th>
+                @foreach ($category as $item)
+                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                {{ $item->id }}
+                            </p>
+                        </th>
 
-                    <td class="px-6 py-4">
-                        {{$item->name}}
+                        <td class="px-6 py-4">
+                            {{ $item->name }}
 
-                    </td>
-                    <td class="px-6 py-4">
-                        {{$item->slug}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $item->slug }}
 
-                    </td>
-                    <td class="px-6 py-4">
-                        <div class="flex-shrink-0">
-                            <img class="w-8 h-8 rounded-full" src="{{ asset('assets/uploads/category/'.$item->image) }}" alt="image Hera">
-                        </div>
-                    </td>
-                    <td class="px-6 py-4">
-                        <span id="availability-available"
-                            class="inline-flex items-center bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
-                            <span class="w-2 h-2 mr-1 bg-green-500 rounded-full"></span>
-                            Available
-                        </span>
-                        <span id="availability-unavailable"
-                            class="inline-flex items-center bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300"
-                            style="display: none">
-                            <span class="w-2 h-2 mr-1 bg-red-500 rounded-full"></span>
-                            Unavailable
-                        </span>
-                    </td>
-                    <td class="px-6 py-4">
-                        <a href="#" class="font-medium text-orange-500 dark:text-blue-500 hover:underline"
-                            id="block-link">Block</a>
-                        |
-                        <a href="#" class="font-medium text-green-500 dark:text-blue-500 hover:underline"
-                            id="unblock-link">Unblock</a>
-                    </td>
-                </tr>
-
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex-shrink-0">
+                                <img class="w-8 h-8 rounded-full"
+                                    src="{{ asset('assets/uploads/category/' . $item->image) }}" alt="image Hera">
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span id="availability-available"
+                                class="inline-flex items-center bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+                                <span class="w-2 h-2 mr-1 bg-green-500 rounded-full"></span>
+                                Available
+                            </span>
+                            <span id="availability-unavailable"
+                                class="inline-flex items-center bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300"
+                                style="display: none">
+                                <span class="w-2 h-2 mr-1 bg-red-500 rounded-full"></span>
+                                Unavailable
+                            </span>
+                        </td>
+                        <td class="px-6 py-4 flex justify-center items-center">
+                            <a href="#" class="font-medium text-orange-500 dark:text-blue-500 hover:underline"
+                                id="block-link">Block</a>
+                            <p class="ml-2 mr-2">|</p>
+                            <a href="#" class="font-medium text-green-500 dark:text-blue-500 hover:underline"
+                                id="unblock-link">Unblock</a>
+                            <p class="ml-2 mr-2">|</p>
+                            <a href="{{url('edit-category/'.$item->id)}}" class="font-medium text-blue-500 dark:text-blue-500 hover:underline"
+                                id="unblock-link">Edit</a>
+                            <p class="ml-2 mr-2">|</p>
+                            <a href="{{url('delete-category/'.$item->id)}}" class="font-medium text-red-600 dark:text-blue-500 hover:underline"
+                                id="unblock-link">Delete</a>
+                        </td>
+                    </tr>
                 @endforeach
 
             </tbody>
@@ -143,10 +149,10 @@
     @if (session('status'))
         <div class="fixed bottom-5 left-30">
             <div id="toast-success"
-                class=" flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+                class=" flex items-center w-full max-w-xs p-4 mb-4 text-green-800 bg-green-200 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
                 role="alert">
                 <div
-                    class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+                    class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-800 bg-green-200 rounded-lg dark:bg-green-800 dark:text-green-200">
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                         viewBox="0 0 20 20">
                         <path
@@ -155,6 +161,32 @@
                     <span class="sr-only">Check icon</span>
                 </div>
                 <div class="ml-3 text-sm font-normal mr-2">{{ session('status') }}</div>
+                <div id="toast-progress" class="h-1 bg-green-500 rounded-lg mt-2 w-full"></div>
+                <button id="toast-close" class="ml-auto focus:outline-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+    @endif
+
+
+    @if (session('status_delete'))
+        <div class="fixed bottom-5 left-30">
+            <div id="toast-success"
+                class=" flex items-center w-full max-w-xs p-4 mb-4 text-red-800 bg-red-200 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+                role="alert">
+                <div
+                    class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-200 bg-red-200 rounded-lg dark:bg-green-800 dark:text-green-200">
+                    <svg class="w-6 h-6 text-red-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h16M7 8v8m4-8v8M7 1h4a1 1 0 0 1 1 1v3H6V2a1 1 0 0 1 1-1ZM3 5h12v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5Z"/>
+                      </svg>
+                    <span class="sr-only">Check icon</span>
+
+                </div>
+                <div class="ml-3 text-sm font-normal mr-2">{{ session('status_delete') }}</div>
                 <div id="toast-progress" class="h-1 bg-green-500 rounded-lg mt-2 w-full"></div>
                 <button id="toast-close" class="ml-auto focus:outline-none">
                     <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"

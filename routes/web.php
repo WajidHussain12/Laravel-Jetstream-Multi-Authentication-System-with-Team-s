@@ -96,6 +96,11 @@ Route::middleware(['superadminauth:sanctum', config('jetstream.auth_session'), '
     // this url for fetch data
     Route::get('/super/admin/showcategory', [SuperAdminController::class, 'categorylistshow'])->name('adminshowcategory');
     Route::post('/super/admin/regcategory', [SuperAdminController::class, 'regcategory'])->name('regcategory');
+    // Category Edit Route
+    Route::get('edit-category/{id}', [SuperAdminController::class, 'categoryedit'])->name('categoryedit');
+    Route::put('update-category/{id}', [SuperAdminController::class, 'updatecategory'])->name('updatecategory');
+    Route::get('delete-category/{id}', [SuperAdminController::class, 'deletecategory'])->name('deletecategory');
+
     // Route::get('/admin/maindashboard', [SuperAdminController::class, 'adminmaindashboard']);
 });
 
