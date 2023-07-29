@@ -1,4 +1,7 @@
-<div class="section default p-4 sm:ml-64" >
+@extends('layouts.seller')
+
+@section('sellercontent')
+<div class="" >
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg">
         <div class="grid grid-cols-3 gap-4 mb-4">
             <div class="flex items-center justify-center h-24 rounded bg-gray-50">
@@ -125,3 +128,5 @@
         </div>
     </div>
 </div>
+
+@endsection

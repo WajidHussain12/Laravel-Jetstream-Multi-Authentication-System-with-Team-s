@@ -1,4 +1,4 @@
-@extends('layouts.seller')
+{{-- @extends('layouts.seller')
 
 @section('sellercontent')
     <header class="bg-white shadow">
@@ -13,4 +13,4 @@
             </h2>
         </div>
     </header>
-@endsection
+@endsection --}}

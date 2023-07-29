@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SellerController;
 use App\Http\Controllers\SuperAdminController;
 
 include_once 'userroutes.php';
@@ -143,10 +144,9 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware(['sellerauth:sanctum', config('jetstream.auth_session'), 'verified', 'role:seller'])->group(function () {
-
-    Route::get('/seller/dashboard', function () {
-        return view('seller.sellerdashboard');
-    })->name('seller.dashboard');
+    Route::get('/seller/dashboard',[SellerController::class,'sellerdashboard'])->name('seller.dashboard');
+    Route::get('/seller/dashboard',[SellerController::class,'seller_dashboard_main'])->name('seller.dashboard');
+    Route::get('/seller/product/quantity',[SellerController::class,'productquantity'])->name('seller_product_quantity');
 });
 
 

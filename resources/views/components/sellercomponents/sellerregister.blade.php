@@ -1,3 +1,6 @@
+@extends('layouts.seller')
+
+@section('sellercontent')
 <div  class="section  bg-white rounded-lg shadow-white shadow-md  m-auto " style="padding:50px">
 
     <h1 class="rounded-md  text-blue-600 font-bold text-lg text-center">Admin Registration</h1>
@@ -23,3 +26,5 @@
 
 
 </div>
+
+@endsection

@@ -32,13 +32,15 @@
     </div>
 
     <x-sellercomponents.sellersidebar />
-    <x-sellercomponents.sellerdashboardmain />
+    {{-- <x-sellercomponents.sellerdashboardmain /> --}}
 
 
     <div class="p-4 sm:ml-64">
 
-        <x-sellercomponents.sellerregister />
-        <x-sellercomponents.sellercategories />
+        {{-- <x-sellercomponents.sellerregister /> --}}
+        {{-- <x-sellercomponents.sellercategories /> --}}
+        @yield("sellercontent")
+
 
     </div>
 
@@ -74,32 +76,32 @@
             //     $("#registerform").hide();
             // });
 
-            $('.section').hide(); // Hide all sections initially
+            // $('.section').hide(); // Hide all sections initially
 
-            // Show the default section on page load
-            const defaultSection = $('.section.default');
-            defaultSection.show();
+            // // Show the default section on page load
+            // const defaultSection = $('.section.default');
+            // defaultSection.show();
 
-            $('.anchor').click(function(event) {
-                event.preventDefault();
+            // $('.anchor').click(function(event) {
+            //     event.preventDefault();
 
-                const clickedAnchor = $(this);
-                const index = $('.anchor').index(clickedAnchor);
-                const targetSection = $('.section').eq(index);
+            //     const clickedAnchor = $(this);
+            //     const index = $('.anchor').index(clickedAnchor);
+            //     const targetSection = $('.section').eq(index);
 
-                $('.section').hide(); // Hide all sections
-                targetSection.show(); // Show the target section
-            });
+            //     $('.section').hide(); // Hide all sections
+            //     targetSection.show(); // Show the target section
+            // });
 
 
-            // Handle click event for anchor links
-            $("a").click(function() {
-                // Check if the sidebar is visible and the screen is small
-                if ($("#default-sidebar").is(":visible") && $(window).width() < 640) {
-                    // Hide the sidebar
-                    $("#default-sidebar").addClass("-translate-x-full");
-                }
-            });
+            // // Handle click event for anchor links
+            // $("a").click(function() {
+            //     // Check if the sidebar is visible and the screen is small
+            //     if ($("#default-sidebar").is(":visible") && $(window).width() < 640) {
+            //         // Hide the sidebar
+            //         $("#default-sidebar").addClass("-translate-x-full");
+            //     }
+            // });
 
 
 

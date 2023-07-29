@@ -41,6 +41,10 @@
             'GRAD'0,
             'opsz'48
     }
+
+    .active{
+        background-color: rgb(115, 151, 228)
+    }
 </style>
 
 
@@ -67,7 +71,8 @@
 
 
             <li>
-                <a href="#" class="anchor default flex justify-center items-center p-2 text-black rounded-lg bg-pink-300">
+                <a href="{{route('seller.dashboard')}}"
+                    class="{{Request::is('seller/dashboard')?'active':''}} anchor default flex justify-center items-center p-2 text-black rounded-lg bg-pink-300">
                     <svg class="w-5 h-5 text-black transition duration-75 " aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
                         <path
@@ -82,7 +87,7 @@
             <div id="accordion-collapse" data-accordion="collapse">
                 <h2 id="accordion-collapse-heading-1">
                     <button type="button"
-                        class=" flex items-center justify-between w-full p-5 font-medium text-left text-red bg-slate-400  focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400  dark:hover:bg-gray-800"
+                        class="flex items-center justify-between w-full p-5 font-medium text-left text-red bg-slate-400  focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400  dark:hover:bg-gray-800"
                         data-accordion-target="#accordion-collapse-body-1" aria-expanded="true"
                         aria-controls="accordion-collapse-body-1">
                         <span class="text-black">Product Management</span>
@@ -95,12 +100,12 @@
                 </h2>
                 <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
                     <div class="p-5  dark:bg-gray-900 bg-purple-100">
-                        <a href="#"
-                            class="anchor default flex items-center p-2 text-white rounded-lg hover:bg-blue-200">
+                        <a href="{{route('seller_product_quantity')}}"
+                            class="{{Request::is('seller/product/quantity')?'active':''}} anchor default flex items-center p-2 text-white rounded-lg hover:bg-blue-200">
 
                             <span class="material-symbols-outlined w-5 h-5 text-orange-500 transition duration-75">
                                 production_quantity_limits
-                                </span>
+                            </span>
                             <span class="text-black ml-3">Manage Products</span>
                         </a>
                         <a href="#"
@@ -108,28 +113,28 @@
 
                             <span class="material-symbols-outlined w-5 h-5 text-green-800 transition duration-75">
                                 add
-                                </span>
+                            </span>
                             <span class="text-black ml-3">Add Products</span>
                         </a>
                         <a href="#"
                             class="anchor default flex items-center p-2 text-white rounded-lg hover:bg-blue-200">
                             <span class="material-symbols-outlined w-5 h-5 text-green-800 transition duration-75">
                                 perm_media
-                                </span>
+                            </span>
                             <span class="text-black ml-3">Media Center</span>
                         </a>
                         <a href="#"
                             class="anchor default flex items-center p-2 text-white rounded-lg hover:bg-blue-200">
                             <span class="material-symbols-outlined w-5 h-5 text-pink-800">
                                 image
-                                </span>
+                            </span>
                             <span class="text-black ml-3">Manage Image</span>
                         </a>
                         <a href="#"
                             class="anchor default flex items-center p-2 text-white rounded-lg hover:bg-blue-200">
                             <span class="material-symbols-outlined w-5 h-5 text-purple-800">
                                 edit_note
-                                </span>
+                            </span>
                             <span class="text-black ml-3">Bulk Add/Edit Products</span>
                         </a>
                     </div>
@@ -142,8 +147,8 @@
                         <span class="text-black">Order Management</span>
                         <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M9 5 5 1 1 5" />
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5 5 1 1 5" />
                         </svg>
                     </button>
                 </h2>
@@ -229,7 +234,8 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="anchor flex items-center p-2 text-black bg rounded-lg hover:bg-blue-200 group">
+                <a href="#"
+                    class="anchor flex items-center p-2 text-black bg rounded-lg hover:bg-blue-200 group">
                     <svg class="w-6 h-6 text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 18" fill="currentColor">
                         <path

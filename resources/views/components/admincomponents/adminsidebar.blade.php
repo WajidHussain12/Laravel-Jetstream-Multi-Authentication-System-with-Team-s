@@ -48,6 +48,9 @@
         overflow: scroll;
         /* Enable scrolling within the sidebar */
     }
+    .active{
+        background-color: rgb(115, 151, 228)
+    }
 </style>
 
 
@@ -84,7 +87,7 @@
             </li>
             <li>
                 <a href="{{ route('admininbox') }}"
-                    class="anchor flex items-center p-2 text-black bg rounded-lg hover:bg-blue-200 group">
+                    class="{{Request::is('super/admin/inbox')?'active':''}} anchor flex items-center p-2 text-black bg rounded-lg hover:bg-blue-200 group">
                     <svg class="w-6 h-6 text-blue-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 18" fill="currentColor">
                         <path
