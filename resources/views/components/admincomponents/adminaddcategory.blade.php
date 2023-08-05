@@ -1,7 +1,7 @@
 @extends('layouts.superadmin')
 
 @section('superadmincontent')
-    <div class="section  bg-white rounded-lg shadow-blue-300 shadow-md  m-auto " style="padding:50px">
+    <div class="section dark:bg-slate-600 bg-white rounded-lg shadow-blue-300 shadow-md  m-auto " style="padding:50px">
         <h1 class="rounded-md  text-blue-600 font-bold text-lg text-center">Add Category</h1>
 
         <form action="{{ route('regcategory') }}" method="POST" autocomplete="off" id="myForm" enctype="multipart/form-data">
@@ -97,7 +97,7 @@
                     const img = document.createElement('img');
                     img.src = e.target.result;
                     img.classList.add('max-w-18',
-                    'max-h-40'); // Adjust the maximum width and height as needed
+                        'max-h-40'); // Adjust the maximum width and height as needed
                     imagePreview.innerHTML = '';
                     imagePreview.appendChild(img);
                 };

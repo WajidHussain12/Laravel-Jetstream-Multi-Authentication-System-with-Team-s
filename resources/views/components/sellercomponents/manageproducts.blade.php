@@ -1,6 +1,6 @@
-@extends('layouts.superadmin')
+@extends('layouts.seller')
 
-@section('superadmincontent')
+@section('sellercontent')
     <style>
         @keyframes fadeout {
             0% {
@@ -66,18 +66,18 @@
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
-                        Category ID
+                        Product Category ID
                     </th>
 
                     <th scope="col" class="px-6 py-3">
-                        Category Name
+                        Product Name
                     </th>
 
                     <th scope="col" class="px-6 py-3">
-                        Category Item Name
+                        Product Small Description
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Description
+                        Product Long Description
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Image
@@ -91,30 +91,30 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($category as $item)
+                @foreach ($product as $item)
                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                                {{ $item->id }}
+                                {{ $item->catid }}
                             </p>
                         </th>
 
                         <td class="px-6 py-4">
-                            {{ $item->name }}
+                            {{ $item->prod_name }}
 
                         </td>
                         <td class="px-6 py-4">
-                            {{ $item->category_item_name }}
+                            {{ $item->prod_small_description }}
 
                         </td>
                         <td class="px-6 py-4">
-                            {{ $item->slug }}
+                            {{ $item->prod_long_description }}
 
                         </td>
                         <td class="px-6 py-4">
                             <div class="flex-shrink-0">
                                 <img class="w-8 h-8 rounded-full"
-                                    src="{{ asset('assets/uploads/category/' . $item->image) }}" alt="image Hera">
+                                    src="{{ asset('assets/uploads/products/' . $item->prod_simage) }}" alt="image Hera">
                             </div>
                         </td>
                         <td class="px-6 py-4">
@@ -245,3 +245,5 @@
         });
     </script>
 @endsection
+
+

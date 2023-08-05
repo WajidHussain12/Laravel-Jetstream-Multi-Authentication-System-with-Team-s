@@ -48,7 +48,8 @@
         overflow: scroll;
         /* Enable scrolling within the sidebar */
     }
-    .active{
+
+    .active {
         background-color: rgb(115, 151, 228)
     }
 </style>
@@ -87,7 +88,7 @@
             </li>
             <li>
                 <a href="{{ route('admininbox') }}"
-                    class="{{Request::is('super/admin/inbox')?'active':''}} anchor flex items-center p-2 text-black bg rounded-lg hover:bg-blue-200 group">
+                    class="{{ Request::is('super/admin/inbox') ? 'active' : '' }} anchor flex items-center p-2 text-black bg rounded-lg hover:bg-blue-200 group">
                     <svg class="w-6 h-6 text-blue-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 18" fill="currentColor">
                         <path
@@ -147,11 +148,11 @@
             <div id="accordion-collapse" data-accordion="collapse">
                 <h2 id="accordion-collapse-heading-1">
                     <button type="button"
-                        class=" flex items-center justify-between w-full p-5 font-medium text-left text-red bg-slate-400  focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400  dark:hover:bg-gray-800"
+                        class=" flex items-center justify-between w-full text-white p-5 font-medium text-left text-red bg-slate-400  focus:ring-4 focus:ring-gray-200    dark:text-white  dark:hover:bg-blue-300 dark:bg-white"
                         data-accordion-target="#accordion-collapse-body-1" aria-expanded="true"
                         aria-controls="accordion-collapse-body-1">
-                        <span class="text-black">Product Management</span>
-                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                        <span class="text-black ">Product Management</span>
+                        <svg data-accordion-icon class="w-3 h-3 dark:text-black rotate-180 shrink-0" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 5 5 1 1 5" />
@@ -159,7 +160,7 @@
                     </button>
                 </h2>
                 <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
-                    <div class="p-5  dark:bg-gray-900 bg-purple-100">
+                    <div class="p-5  dark:bg-white bg-purple-100">
                         <a href="#"
                             class="anchor default flex items-center p-2 text-white rounded-lg hover:bg-blue-200">
 
@@ -201,10 +202,10 @@
                 </div>
                 <h2 id="accordion-collapse-heading-2">
                     <button type="button"
-                        class=" flex items-center justify-between w-full p-5 font-medium text-left text-red bg-slate-400  focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400  dark:hover:bg-gray-800"
+                        class=" flex items-center justify-between w-full p-5 font-medium text-left text-red bg-slate-400  focus:ring-4 focus:ring-gray-200  dark:bg-white  dark:text-gray-400  dark:hover:bg-blue-300"
                         data-accordion-target="#accordion-collapse-body-2" aria-expanded="false"
                         aria-controls="accordion-collapse-body-2">
-                        <span class="text-black">Order Management</span>
+                        <span class="text-black ">Order Management</span>
                         <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -213,7 +214,7 @@
                     </button>
                 </h2>
                 <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
-                    <div class="p-5 border border-b-0  dark:border-gray-700 bg-purple-100">
+                    <div class="p-5 border border-b-0 bg-purple-100">
                         <a href="#"
                             class="anchor default flex items-center p-2 text-black rounded-lg hover:bg-blue-200">
                             <svg class="w-5 h-5 text-black transition duration-75 group-hover:text-gray-900"
@@ -284,15 +285,41 @@
 
                     <span class="flex-1 ml-3 whitespace-nowrap">Add Categories</span>
                 </a>
+
+                <a href="{{ route('adminadditems') }}"
+                    class="anchor flex items-center p-2 text-black rounded-lg hover:bg-blue-200">
+
+                    <svg class="flex-shrink-0 w-5 h-5 text-black transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                        viewBox="0 0 18 18">
+                        <path
+                            d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
+                    </svg>
+
+                    <span class="flex-1 ml-3 whitespace-nowrap">Add Items</span>
+                </a>
             </li>
             <li>
-                <a href="{{ route('adminshowcategory') }}" class="anchor flex items-center p-2 text-black rounded-lg  hover:bg-blue-200">
+                <a href="{{ route('adminshowcategory') }}"
+                    class="anchor flex items-center p-2 text-black rounded-lg  hover:bg-blue-200">
 
                     <span class="material-symbols-outlined w-6 h-6 text-black">
                         category
                     </span>
 
                     <span class="flex-1 ml-3 whitespace-nowrap">Categories</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('adminshowitem') }}"
+                    class="anchor flex items-center p-2 text-black rounded-lg  hover:bg-blue-200">
+
+                    <span class="material-symbols-outlined w-6 h-6 text-black">
+                        category
+                    </span>
+
+                    <span class="flex-1 ml-3 whitespace-nowrap">Items</span>
                 </a>
             </li>
 

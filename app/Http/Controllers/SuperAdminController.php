@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\item;
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -188,6 +189,28 @@ class SuperAdminController extends Controller
             }
         }
         $category->delete();
-        return redirect()->route('adminshowcategory')->with('status_delete','Category Deleted SuccessFully');
+        return redirect()->route('adminshowcategory')->with('status_delete','Category Deleted Successfully');
+    }
+
+
+    public function adminadditems(){
+        $itemcategory = Category::all();
+        return view('components.admincomponents.adminadditem',compact('itemcategory'));
+    }
+
+
+    public function insertitem(Request $request){
+        $item = new item();
+
+        $item->category_id = $request->input('categoryid');
+        $item->item_name = $request->input('itemname');
+        $item->save();
+        return redirect()->route('adminshowitem')->with('status','Item Added Successfully');
+    }
+
+
+    public function adminshowitem(){
+        $showitem = Item::all();
+        return view ('components.admincomponents.adminshowitem',compact('showitem'));
     }
 }

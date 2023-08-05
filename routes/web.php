@@ -99,8 +99,12 @@ Route::middleware(['superadminauth:sanctum', config('jetstream.auth_session'), '
     Route::post('/super/admin/regcategory', [SuperAdminController::class, 'regcategory'])->name('regcategory');
     // Category Edit Route
     Route::get('edit-category/{id}', [SuperAdminController::class, 'categoryedit'])->name('categoryedit');
-    Route::put('update-category/{id}', [SuperAdminController::class, 'updatecategory'])->name('updatecategory');
-    Route::get('delete-category/{id}', [SuperAdminController::class, 'deletecategory'])->name('deletecategory');
+    Route::put('update/category/{id}', [SuperAdminController::class, 'updatecategory'])->name('updatecategory');
+    Route::get('delete/category/{id}', [SuperAdminController::class, 'deletecategory'])->name('deletecategory');
+    //add item route
+    Route::get('admin/adminadditems', [SuperAdminController::class, 'adminadditems'])->name('adminadditems');
+    Route::post('admin/insertitem', [SuperAdminController::class, 'insertitem'])->name('insertitem');
+    Route::get('admin/items', [SuperAdminController::class, 'adminshowitem'])->name('adminshowitem');
 
     // Route::get('/admin/maindashboard', [SuperAdminController::class, 'adminmaindashboard']);
 });
@@ -144,9 +148,12 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware(['sellerauth:sanctum', config('jetstream.auth_session'), 'verified', 'role:seller'])->group(function () {
-    Route::get('/seller/dashboard',[SellerController::class,'sellerdashboard'])->name('seller.dashboard');
-    Route::get('/seller/dashboard',[SellerController::class,'seller_dashboard_main'])->name('seller.dashboard');
-    Route::get('/seller/product/quantity',[SellerController::class,'productquantity'])->name('seller_product_quantity');
+    Route::get('/seller/dashboard', [SellerController::class, 'sellerdashboard'])->name('seller.dashboard');
+    Route::get('/seller/dashboard', [SellerController::class, 'seller_dashboard_main'])->name('seller.dashboard');
+    Route::get('/seller/category_list', [SellerController::class, 'category_list'])->name('category_list');
+    Route::get('/seller/addproduct',[SellerController::class,'addproduct'])->name('addproduct');
+    Route::POST('seller/insertproduct', [SellerController::class, 'insertproduct'])->name('insertproduct');
+    Route::get('seller/manageproducts', [SellerController::class, 'manageproducts'])->name('manageproducts');
 });
 
 
